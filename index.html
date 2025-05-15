@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>MQTT波形监控</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.1/mqttws31.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="tab">
+    <button class="tablinks" onclick="openTab(event, 'realtime')" id="defaultOpen">实时波形</button>
+    <button class="tablinks" onclick="openTab(event, 'history')">历史记录</button>
+    <button class="tablinks" onclick="openTab(event, 'advice')">智能建议</button>
+  </div>
+
+  <!-- 在波形图容器下方添加状态指示器 -->
+  <div class="tabcontent" id="realtime">
+    <canvas id="waveformChart"></canvas>
+    <div id="connectionStatus" class="status-indicator">
+    <span class="status-icon"></span>
+    <span class="status-text"></span>
+  </div>
+  </div>
+
+  <div id="history" class="tabcontent">
+    <div id="historyList"></div>
+  </div>
+
+  <div id="advice" class="tabcontent">
+    <div id="adviceContent"></div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
