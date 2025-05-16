@@ -11,7 +11,18 @@
   <div class="tab">
     <button class="tablinks" onclick="openTab(event, 'realtime')" id="defaultOpen">实时波形</button>
     <button class="tablinks" onclick="openTab(event, 'history')">历史记录</button>
-    <button class="tablinks" onclick="openTab(event, 'advice')">智能建议</button>
+    <button class="tablinks" onclick="openTab(event, 'result')">检测结果</button>
+  </div>
+
+  <div id="result" class="tabcontent">
+    <div id="healthCard" class="health-card" style="display: none;">
+      <div class="health-text"></div>
+    </div>
+    <div id="resultContent"></div>
+    <div class="health-buttons">
+  <button class="health-btn healthy" onclick="sendHealthStatus(1)"></button>
+  <button class="health-btn unhealthy" onclick="sendHealthStatus(2)"></button>
+</div>
   </div>
 
   <!-- 在波形图容器下方添加状态指示器 -->
@@ -25,10 +36,15 @@
 
   <div id="history" class="tabcontent">
     <div id="historyList"></div>
+<button class="clear-history" onclick="clearHistory()">清空历史记录</button>
   </div>
 
-  <div id="advice" class="tabcontent">
-    <div id="adviceContent"></div>
+  <div id="healthResult" class="tabcontent">
+    <div id="healthCard" class="health-card">
+      <span class="health-icon"></span>
+      <span class="health-text"></span>
+    </div>
+    <div id="resultContent"></div>
   </div>
 
   <script src="app.js"></script>
